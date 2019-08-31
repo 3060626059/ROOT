@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>网关页 ROOT 想是容易!</title>
+		<link href="css/b.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// This initialises carousels on the container elements specified, in this case, carousel1.
+				// 这初始化了指定的容器元素的carousels,在这种情况下,carousel1。
+				$("#carousel1").CloudCarousel({
+					reflHeight: 40,
+					reflGap: 2,
+					titleBox: $('#da-vinci-title'),
+					altBox: $('#da-vinci-alt'),
+					buttonLeft: $('#slider-left-but'),
+					buttonRight: $('#slider-right-but'),
+					yRadius: 30,
+					xPos: 480,
+					yPos: 32,
+					speed: 0.15,
+				});
+			});
+		</script>
+
+	</head>
+
+	<body>
+		<a> 让电脑使用小网卡放热点</a>
+		<br>
+		<a>手机连接,电脑打开cmd 输入 ipconfig 找到热点的网关</a>
+		<br>
+		<a>服务器先工作,手机浏览器输入网关地</a>
+		<br>
+		<a></a>
+		<br>
+		<a>汤姆猫服务器 同时部署多项目直接可以在浏览器中穿透访问</a>
+		<br>
+		<a>默认先找 index.html 文件,sevrlet 的访问路径可以设置 "/"' 或者 ROOT,当访问项目会先执行sevrlet,相对应把项目设置成 根项目</a>
+		<br>
+		<br>
+		<a>经验----新建 sevrlet 需要重新启动 汤姆猫服务器,他不支持热部署 </a>
+		<br>
+		<a></a>
+		<br><br><br><br>
+		<a>项目之间不要有明显的联系,避免运行时出现麻烦__ ROOT项目不要直接有跳转到 测试1_网页 的链接</a>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<a>使用可实现功能但自己又不懂的代码要细心</a>
+		<br>
+		<a>错误示范:</a>
+		<a>我不改没事,一改就不显示,异步请求网页还是有问题的!</a>
+		<br>
+		<a>我知道错哪了,为什么一直都不执行,因为执行逻辑外部还有一层条件,我没修改!</a>
+		<br>
+		<a>由于粘贴过来的代码都带有其环境的特性,所以要修改环境.</a>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div>
+			<div id="哈"></div>
+			<script type="text/javascript">
+				var xhr1 = null;
+				if(window.XMLHttpRequest) {
+					xhr1 = new XMLHttpRequest();
+				} else {
+					xhr1 = new ActiveXObject('Mcrosoft.XMLHTTP');
+				}
+				xhr1.open("get", "./?xValuse=0", true);
+				//console.log('异步加载网页开始:');
+				//xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				xhr1.onreadystatechange = function() {
+					var data1 = xhr1.responseText;
+					//console.log(data);
+					var d11 = document.getElementById("哈");
+					d11.innerHTML = data1;
+				}
+				xhr1.send(null);
+			</script>
+		</div>
+		<br>
+	
+
+		<!--不用
+			
+			<div>
+			<div id="更新区域"></div>
+			<script type="text/javascript">
+				window.onload = function() {
+					var xhr = null;
+					if(window.XMLHttpRequest) {
+						xhr = new XMLHttpRequest();
+					} else {
+						xhr = new ActiveXObject('Mcrosoft.XMLHTTP');
+					}
+					xhr.open("get", "./root/root3/index", true);
+					//console.log('异步加载网页开始:');
+					//xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					xhr.onreadystatechange = function() {
+						var data = xhr.responseText;
+						//console.log(data);
+						var d1 = document.getElementById("更新区域");
+						d1.innerHTML = data;
+					}
+					xhr.send(null);
+				}
+			</script>
+		</div>-->
+		<br>
+		<br>
+		<script type="text/javascript">
+			function test() {
+				alert(document.getElementsByTagName("a")[0].innerText);
+			}
+
+			function test(obj) {
+				alert(obj.innerText);
+			}
+
+			//document.getElementById("btn").onclick = 
+			function x1(obj) {
+				//根据id获取超链接,设置href属性
+				var aObj = document.getElementById("被修改的id");
+				aObj.href = "http://www.baidu.com";
+				//根据id获取超链接,设置文字内容
+				aObj.innerText = "对超人,他走了";
+			};
+		</script>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+		<div>
+			<div>
+				<a>我以为,,我会做出来是这个样子的</a>
+				<br>
+				<a>
+					<img src="src/img/我想要是这样.jpg" width="987" height="610">
+				</a>
+			</div>
+		</div>
+
+		<div>
+			<div>
+				<a> 其实,我是做成这样</a>
+				<br>
+				<br>
+				<br>
+				<br>
+				<a>
+					<img src="src/img/实际是这样子.jpg" width="987" height="610">
+				</a>
+			</div>
+		</div>
+		<br>
+		<a>我认为Eclipse 的网页项目 文件夹结构不合理,当文件数量增加后,无法直观进行管理<br></a>
+		<a>目前我的所有网页项目的路径是这样子的</a>
+		<a>目录的主要问题:<br></a>
+		<a>这个项目 \测试1_网页\WebRoot\ 我需要添加未知数量的文件,不希望新添加的文件与old文件放在一起<br></a>
+		<a>每有一个新HTML文件,就新建一个以当前日期为名字的文件夹,这样一来,文件夹的拓展便起到了隔离文件,方便寻找的目的!<br></a>
+		<a>拓展三个文件夹以后,加上项目原本的文件夹就已经有七个文件夹,其中项目必须的文件夹只有两个,剩下五个则是网页需要<br></a>
+		<a>这种方法使得项目拓展出更多麻烦,文件夹这么多,真正重要的很少,混乱,与主要文件夹放在同一层虽然一眼可以看清楚,麻烦也是很明显的,至少我想删除一个文件夹还有害怕连累其它<br></a>
+		<a>要有新的方法 布置文件夹的层次结构, 文件夹是吃深的抽象概念!<br></a>
+		<a>创建文件夹的层次 模仿树的层次结构 1 1 2 3 5 8 13 21 34 55 89<br></a>
+		<a>树枝 随便弄断并不会导致整棵树死亡,能被随便弄坏的树枝是小.或者不重要的<br></a>
+		<a>树只要砍得恰当,是不会死掉的,还会照常生长,树的抗破坏策略是很好用的,并且它是有规律的<br></a>
+		<a>树的第一,二层(地面以上,根部以上)是最大,最粗,重要部分,然后便是分叉,2,第三层分出的两个叉,3,第四层,一个叉会再分两个叉,另一个叉会等再长一点再进行分叉<br></a>
+		<a>待续<br></a>
+		<a>还需要研究一下大树枝条扩展的方法/规律 方便管理,随时可削到一段但是并不影响全体<br></a>
+		<a><br></a>
+		<a><br></a>
+		<a><br></a>
+		<a><br></a>
+		<a><br></a>
+		<a><br></a>
+		<a><br></a>
+		<a><br></a>
+		<a><br></a>
+		<a><br></a>
+		<a><br></a>
+		<a><br></a>
+		<a><br></a>
+		<a><br></a>
+		<a><br></a>
+		<a><br></a>
+		<a><br></a>
+		<a><br></a>
+		<a><br></a>
+		<a><br></a>
+		<a><br></a>
+		<a></a>
+	</body>
+
+</html>
