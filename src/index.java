@@ -61,40 +61,50 @@ public class index extends HttpServlet {
 			try {
 				// xtool.x_HTML_to_Byte_to_Response(new File(x_File_team, "xtest.html"), response);
 				
-				  xtool.x_HTML_to_Byte_to_Response( new StringBuilder()
-				  .append(x_扫描信息生成网页方法(request)) .append("<a>") .append("测试数据 100-9000-747")
-				  .append("</a><br>"), response);
+				  xtool.x_HTML_to_Byte_to_Response(
+						  new StringBuilder()
+				  .append(x_servlet_urlPatterns_扫描_to_HTML(request))
+				  .append("<a>") 
+				  .append("测试数据 101-9000-747")
+				  .append("</a><br>")
+				  , response);
 				 
 			} catch (Exception e) {}
 		}
 		
 	}
 	
-	public static StringBuilder x_扫描信息生成网页方法(HttpServletRequest request) {
+	public static StringBuilder x_servlet_urlPatterns_扫描_to_HTML(HttpServletRequest request) {
 		StringBuilder x_StringBuffer = new StringBuilder();
 
-		// 获取当前项目 应用级 servlet 映射路径
-		Map<String, ? extends ServletRegistration> x_servlet登记信息 = request.getServletContext()
-		                .getServletRegistrations();
+		// 获取当前项目登记信息集合
+		Map<String, ? extends ServletRegistration> x_servlet登记信息 = request.getServletContext().getServletRegistrations();
 		Iterator<String> x_keyset_iterator = x_servlet登记信息.keySet().iterator();
 		while (x_keyset_iterator.hasNext()) {
 			String x_keysetL = (String) x_keyset_iterator.next();
 			
 			if (x_keysetL.equals("default") || x_keysetL.equals("jsp")) {
+				// 不扫描默认servlet
 				continue;
 			}
 			
-			ServletRegistration x_单张_servlet_的登记信息 = x_servlet登记信息.get(x_keysetL);
-			
-			Collection<String> x_Mappings_映射集合 = x_单张_servlet_的登记信息.getMappings();
-			for (String x_映射值 : x_Mappings_映射集合) {
-				x_StringBuffer.append("<a href=\"." + x_映射值 + "\">" + x_单张_servlet_的登记信息.getName()+"   :  "+ x_映射值 + "</a><br><br>");
+			ServletRegistration x_独个_servlet_登记信息 = x_servlet登记信息.get(x_keysetL);
+			Collection<String> x_Mappings = x_独个_servlet_登记信息.getMappings();
+			for (String x_urlPatterns : x_Mappings) {
+				x_StringBuffer
+				.append("<a href=\".")
+				.append(x_urlPatterns )
+				.append("\">")
+				.append( x_urlPatterns )
+				.append(x_独个_servlet_登记信息.getName())
+				.append("   :  ")
+				.append("</a><br><br>");
 			}
-			x_StringBuffer.append("<br>");
-			
+
 		}
 		return x_StringBuffer;
 	}
 	
-	
+
+
 }
