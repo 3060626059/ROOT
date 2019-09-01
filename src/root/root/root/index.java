@@ -33,6 +33,8 @@ public class index extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 
+		response.setCharacterEncoding("UTF-8");
+		
 		Enumeration<String> xParameter = request.getParameterNames();
 			
 		if (!xParameter.hasMoreElements()) {

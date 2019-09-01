@@ -4,16 +4,23 @@ import java.io.IOException;
 import java.util.Enumeration;
 
 import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import root.tool.xtool;
+
 @WebServlet(name = "root.root2.index_韩顺平教学视频_blibli视频资源",urlPatterns = {"/root/root2/index","/root/root2/"})
 public class index extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public index() {
+	    // 2019年8月31日 17:45:29
+	    // 这里的代码有问题
+	    // 读取json文件的编码,发送的编码,不统一.
+	    // 未解决!
+	    
+	    
     	//不要把访问路径设置成 / 
 	// 因为访问路径是 / 不能访问 js,css,
 	// 解决方法是有的, 在 web.xml 设置拦截
@@ -29,8 +36,8 @@ public class index extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setHeader("Content-type", "text/html;charset=UTF-8");
 		
-		ServletOutputStream responseOut = response.getOutputStream(); 
-
+		// ServletOutputStream responseOut = response.getOutputStream(); 
+		// 这段代码的功能,在工具包已经封装好,所以不用这样子写了
 		Enumeration<String> x请求参数 = request.getParameterNames();
 		
 		String xtitle="  ---ROOT2 ---韩顺平视频__在线观看  ";
@@ -62,21 +69,41 @@ public class index extends HttpServlet {
 				//格式 	 ?x200=23356362&x201=11&x202=lua.flv720.bili2api.64
 				x视频请求地址="?x200="+x300+"&x201="+x301+"&x202="+x302;						     			 
 				
-				response.setContentLength(x网页(x303,x视频请求地址,x图片请求地址).toString().length());
-				responseOut.write(x网页(x303,x视频请求地址,x图片请求地址).toString().getBytes());
+				 // response.setContentLength(x网页(x303,x视频请求地址,x图片请求地址).toString().length());
+				// responseOut.write(x网页(x303,x视频请求地址,x图片请求地址).toString().getBytes(""));
+				StringBuilder x_info = x网页(x303,x视频请求地址,x图片请求地址);
+					try {
+						xtool.x_HTML_to_Byte_to_Response(x_info, response);
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
 				break;
 
 			default:				
 				//请求类型  未知  返回首页
-				response.setContentLengthLong(x网页(xtitle, null, x图片请求地址).toString().length());
-				responseOut.write(x网页(xtitle, null, x图片请求地址).toString().getBytes());
+				// response.setContentLengthLong(x网页(xtitle, null, x图片请求地址).toString().length());
+				// responseOut.write(x网页(xtitle, null, x图片请求地址).toString().getBytes());
+				
+				StringBuilder x_info1 = x网页(xtitle, null, x图片请求地址);
+					try {
+						xtool.x_HTML_to_Byte_to_Response(x_info1, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				break;
 			}
 		}else {
-			response.setContentLengthLong(x网页(xtitle, null, x图片请求地址).toString().length());
-			responseOut.write(x网页(xtitle, null, x图片请求地址).toString().getBytes());
+			// response.setContentLengthLong(x网页(xtitle, null, x图片请求地址).toString().length());
+			// responseOut.write(x网页(xtitle, null, x图片请求地址).toString().getBytes());
+			
+			StringBuilder x_info2 = x网页(xtitle, null, x图片请求地址);
+			try {
+				xtool.x_HTML_to_Byte_to_Response(x_info2, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
-		responseOut.close();
+		//responseOut.close();
 	}
 
 	public static StringBuilder x网页新标签() {
@@ -128,11 +155,6 @@ public class index extends HttpServlet {
 				+ "</body></html>");	
 		return x网页外壳;
 	}
-	
-		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			doGet(request, response);
-	}
-
 		
 		
 }

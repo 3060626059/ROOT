@@ -30,6 +30,8 @@ public class index extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	                throws ServletException, IOException {
+		response.setCharacterEncoding("UTF-8");
+		
 		// 当前映射将直接返回数据
 		StringBuilder x_stringbuilder = x_扫描信息生成网页方法(request);
 		try {

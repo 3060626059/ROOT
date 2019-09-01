@@ -11,21 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class x01
  */
-@WebServlet(name = "root.root7.x01_目的未知",urlPatterns = {"/root/root7/x01"})
+@WebServlet(name = "root.root7.x01_目的未知_真的是他?_心太大了_生效期有点长_被发现的时间",urlPatterns = {"/root/root7/x01"})
 public class x01 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public x01() {
+     public x01() {
         super();
-        // TODO Auto-generated constructor stub
+      
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String utf_8="utf-8";
@@ -48,14 +42,9 @@ public class x01 extends HttpServlet {
 		//表示使用转发的方法 把 request response 对象传递给下一个servlet
 		request.getRequestDispatcher("/x请求转发/x02").forward(request, response);
 		//response.sendRedirect(arg0);
+		// 真的是太复杂了,把自己都给耍了
+		// 我以为是请求转发给同个包下的 02,真相是 .......
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
 
 }

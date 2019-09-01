@@ -46,7 +46,7 @@ public class index extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	                throws ServletException, IOException {
-		
+		response.setCharacterEncoding("UTF-8");
 		// 分析请求参数
 		Enumeration<String> xParameterNames = request.getParameterNames();
 		// 默认没有参数
@@ -59,13 +59,12 @@ public class index extends HttpServlet {
 			}
 		} else {
 			try {
-				xtool.x_HTML_to_Byte_to_Response(
-						new StringBuilder()
-						.append(x_扫描信息生成网页方法(request))
-						.append("<a>")
-						.append("测试数据 000-9000-747")
-						.append("</a><br>"), 
-						response);
+				// xtool.x_HTML_to_Byte_to_Response(new File(x_File_team, "xtest.html"), response);
+				
+				  xtool.x_HTML_to_Byte_to_Response( new StringBuilder()
+				  .append(x_扫描信息生成网页方法(request)) .append("<a>") .append("测试数据 100-9000-747")
+				  .append("</a><br>"), response);
+				 
 			} catch (Exception e) {}
 		}
 		

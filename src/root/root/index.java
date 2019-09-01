@@ -26,6 +26,7 @@ public class index extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) {	
 		
+		response.setCharacterEncoding("UTF-8");
 		xtool.x请求信息(request);
 		
 		response.setCharacterEncoding("utf-8");

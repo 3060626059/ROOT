@@ -259,12 +259,16 @@ public class xtool {
 	/**
 	 * 在基类的基础上简化的方法
 	 * 基于基类的简化处理方法
+	 * 将传入字符以 utf-8 进行编码
 	 * @param string 字符串对象
 	 * @param response 响应对象
 	 * @throws Exception  抛出可能出现的异常
 	 */
 	public static void x_HTML_to_Byte_to_Response(String string,HttpServletResponse response) throws Exception {
-		x_HTML_to_Byte_to_Response(string.getBytes(), response);
+		/*
+		 * getbytes 会根据系统的编码为默认编码
+		 * */
+		x_HTML_to_Byte_to_Response(string.getBytes("UTF-8"), response);
 	}
 	
 	/**
